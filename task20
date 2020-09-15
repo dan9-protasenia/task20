@@ -1,0 +1,24 @@
+#include <iostream>   // подключаем библиотеку 
+#include <sstream>
+#include <string>
+
+
+int main()
+{
+    std::string s;    // Вводим переменную 
+
+    std::cout << "Enter string: ";
+    std::getline(std::cin, s);    // в переменную "s" попадает вся строка, включая пробелы
+
+    std::stringstream ss(s);       // использем stream ,т.к. берётся содержимое не из входного потока программы, а из данной ему строки
+
+    std::string word(s);  
+
+    while (ss >> s)       // Вводим  оператор цикла (цикл с предварительной проверкой условия)
+        if (s.size() < word.size())
+            word = s;
+
+    std::cout << "Res: " << word << std::endl;   // Вводим имя локальной переменной в функции «res» = «result»
+
+    return 0;
+}
